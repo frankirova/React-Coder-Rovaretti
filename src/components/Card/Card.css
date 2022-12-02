@@ -1,0 +1,9 @@
+.card{
+    height: 85vh;
+
+    margin-top: 1rem;
+}
+.img-card{
+    width: fit-content;
+    height: fit-content;
+}
