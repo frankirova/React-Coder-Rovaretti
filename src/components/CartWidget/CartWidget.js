@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import './CartWidget.css'
 
 const CartWidget = () => {
   const [count, setCount] = useState(0)

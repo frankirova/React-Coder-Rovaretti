@@ -6,7 +6,8 @@ import imgSmsTab8 from './img/Samsung-tab8.png';
 import imgxiaomi from './img/xiaomi.png';
 const prod = [
     {   
-        "id" : 1 ,
+        "id" : '1' ,
+        'categoria' : 'Celulares',
         "marca" : "Samsung Galaxy A52s",
         "procesador": "Octa Core 2.4 GHz, 1.8 GHz",
         "ram": "6Gb",
@@ -16,7 +17,8 @@ const prod = [
         "img": imgA52
     },
     {   
-        "id" : 2 ,
+        "id" : '2' ,
+        'categoria' : 'Celulares', 
         "marca" : "Samsung Galaxy S20 Fan Edition",
         "procesador": "Octa Core 2.8 GHz, 2.4 GHz, 1.8 GHz",
         "ram": "6Gb",
@@ -26,7 +28,8 @@ const prod = [
         "img": imgS20FE
     },
     {
-        "id" : 3,
+        "id" : '3',
+        'categoria' : "Notebooks", 
         "marca" : "Dell Inspiron 3511",
         "procesador": "i7 1165G7",
         "ram": "8Gb",
@@ -38,6 +41,7 @@ const prod = [
     },
     {
         "id" : 4,
+        'categoria' : 'Notebooks', 
         "marca" : "Acer Aspire 5",
         "procesador": "i5 1135G7",
         "ram": "8Gb",
@@ -48,7 +52,8 @@ const prod = [
         "img" : imgAcerAspire
     },
     {
-        "id" : 5 ,
+        "id" : '5' ,
+        'categoria' : 'Tablets', 
         "marca" : "Xiaomi Redmi Pad",
         "procesador": "MediaTek Helio G99 ",
         "ram": "4Gb",
@@ -58,7 +63,8 @@ const prod = [
         "img": imgxiaomi
     },
     {
-        "id" : 6 ,
+        "id" : '6' ,
+        'categoria' : 'Tablets', 
         "marca" : "Samsung Tab A8 Lite",
         "procesador": "Mediatek MT8768T ",
         "ram": "3Gb",
@@ -77,7 +83,14 @@ export const getProds = () =>{
     })
 }
 
-
+export const getProdByCategory = (categoryId) =>{
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(prod.filter(prod => prod.categoria === categoryId))
+        },2000)
+    })
+    console.log(categoryId)
+}
 
 export const getProdById = (id) =>{
     return new Promise((resolve) => {

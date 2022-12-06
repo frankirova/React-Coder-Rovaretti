@@ -1,9 +1,9 @@
 .card{
-    height: 85vh;
+    height: 100vh;
 
     margin-top: 1rem;
 }
 .img-card{
-    width: fit-content;
-    height: fit-content;
+    width: auto !important;
+    height: auto !important;
 }
