@@ -1,9 +1,4 @@
-import imgA52 from "./img/samsung-A52.png";
-import imgS20FE from './img/samsung-S20FE.png';
-import imgDellInspiron from "./img/Dell-inspiron.jpg"
-import imgAcerAspire from './img/Acer-aspire-5.jpg'
-import imgSmsTab8 from './img/Samsung-tab8.png';
-import imgxiaomi from './img/xiaomi.png';
+
 const prod = [
     {   
         "id" : '1' ,
@@ -14,7 +9,7 @@ const prod = [
         "pantalla" : "6.5'",
         "almacenamiento" : "128 Gb",
         "precio" : "$125999",
-        "img": imgA52
+        "img": '../assets/samsung-A52.png'
     },
     {   
         "id" : '2' ,
@@ -25,7 +20,8 @@ const prod = [
         "pantalla" : "6.5'",
         "almacenamiento" : "128 Gb",
         "precio" : "$110999",
-        "img": imgS20FE
+        "img": '../assets/samsung-S20FE.png'
+
     },
     {
         "id" : '3',
@@ -37,10 +33,10 @@ const prod = [
         "almacenamiento" : "256Gb SSD",
         "sistema operativo" : "Free",
         "precio" : "$249990",
-        "img" : imgDellInspiron
+        "img" : "../assets/Dell-inspiron.jpg"
     },
     {
-        "id" : 4,
+        "id" : '4',
         'categoria' : 'Notebooks', 
         "marca" : "Acer Aspire 5",
         "procesador": "i5 1135G7",
@@ -49,7 +45,7 @@ const prod = [
         "almacenamiento" : "256Gb SSD",
         "sistema operativo" : "Free",
         "precio" : "$176990",
-        "img" : imgAcerAspire
+        "img" : '../assets/Acer-aspire-5.jpg'
     },
     {
         "id" : '5' ,
@@ -60,7 +56,7 @@ const prod = [
         "pantalla" : "10.6'",
         "almacenamiento" : "128 Gb",
         "precio" : "$119900",
-        "img": imgxiaomi
+        "img": '../assets/Samsung-tab8.png'
     },
     {
         "id" : '6' ,
@@ -71,7 +67,7 @@ const prod = [
         "pantalla" : "10.5'",
         "almacenamiento" : "32 Gb",
         "precio" : "$78999",
-        "img": imgSmsTab8
+        "img": '../assets/xiaomi.png'
     }
 ]
 
@@ -89,7 +85,6 @@ export const getProdByCategory = (categoryId) =>{
             resolve(prod.filter(prod => prod.categoria === categoryId))
         },2000)
     })
-    console.log(categoryId)
 }
 
 export const getProdById = (id) =>{

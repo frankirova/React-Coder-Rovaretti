@@ -8,7 +8,7 @@ const ProdConteiner = () => {
   const [prod, setProd] = useState([]);
   const [isLoading, setIsLoading] = useState(true)
   const {categoryId} = useParams()
-  console.log(categoryId)
+  
   useEffect(()=>{
     if(!categoryId){
       getProds()
@@ -39,8 +39,8 @@ const ProdConteiner = () => {
   
 if (isLoading)return(<h1>Cargando...</h1>) 
   return (
-    <div>
-        <h2>Bienvenidos a RealTech</h2>
+    <div className='contenedor-list conteiner d-flex flex-column justify-content-center h-100'>
+        <h2 className='my-3'>Bienvenidos a <span className='titulo-color'>RealTech</span></h2>
         <ProdList prod= {prod}/>
     </div>
   )

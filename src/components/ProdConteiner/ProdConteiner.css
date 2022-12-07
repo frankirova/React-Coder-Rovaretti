@@ -1,6 +1,3 @@
-.card-conteiner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.titulo-color{
+    color: #198754;
 }

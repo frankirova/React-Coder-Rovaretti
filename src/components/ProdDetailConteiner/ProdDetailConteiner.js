@@ -10,7 +10,7 @@ const ProdDetailConteiner = () => {
     const {prodId} = useParams()
    
     useEffect (() =>{
-        console.log(prodId)
+        
         getProdById(prodId)
     
         .then(response =>{
@@ -21,10 +21,10 @@ const ProdDetailConteiner = () => {
         })
         .finally(() => setIsLoading(false))
     }, [prodId]);
-    console.log(prodById)
+    
 if (isLoading)return(<h1>Cargando...</h1>) 
   return (
-    <div>
+    <div className='container d-flex justify-content-center align-items-center h-100'>
         
         <ProdDetail prodById={prodById} />
     </div>

@@ -7,24 +7,26 @@ i{
 }
 
 
-.conteiner{
-    height: 85vh;
 
-    font-size: 1.5rem;
 
+.detail{
+    height: 60vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
-.card-img-top{
-    width: 300px;
-    height: 450px;
+
+
+.detail-img{
+    max-width:100%;
+    height: auto;
+
+
 }
 
 .price{
-    font-weight: bold;
-    font-size: 2rem;
+    font-weight: 500;
+    font-size: 1.6rem;
     color: black;
 }
 
