@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react'
+import React from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import {getProdById} from '../../asyncmock'
 import ProdDetail from '../ProdDetail/ProdDetail'
+
+
+
 const ProdDetailConteiner = () => {
 
     const [prodById, setProdById] = useState({})
     const [isLoading, setIsLoading] = useState(true)
     const {prodId} = useParams()
+
+ 
    
     useEffect (() =>{
         

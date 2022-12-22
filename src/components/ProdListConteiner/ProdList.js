@@ -1,6 +1,6 @@
 import './ProdList.css'
 import React from 'react'
-import Card from '../Card/Card'
+import Card from '../Prod/Prod'
 // import { useState, useEfect } from 'react'
 
 const ProdList = ({prod}) => {

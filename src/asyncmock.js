@@ -9,7 +9,8 @@ const prod = [
         "pantalla" : "6.5'",
         "almacenamiento" : "128 Gb",
         "precio" : "$125999",
-        "img": '../assets/samsung-A52.png'
+        "img": '../assets/samsung-A52.png',
+        "stock": "10"
     },
     {   
         "id" : '2' ,
@@ -20,7 +21,8 @@ const prod = [
         "pantalla" : "6.5'",
         "almacenamiento" : "128 Gb",
         "precio" : "$110999",
-        "img": '../assets/samsung-S20FE.png'
+        "img": '../assets/samsung-S20FE.png',
+        "stock": "10"
 
     },
     {
@@ -33,7 +35,8 @@ const prod = [
         "almacenamiento" : "256Gb SSD",
         "sistema operativo" : "Free",
         "precio" : "$249990",
-        "img" : "../assets/Dell-inspiron.jpg"
+        "img" : "../assets/Dell-inspiron.jpg",
+        "stock": "10"
     },
     {
         "id" : '4',
@@ -45,7 +48,9 @@ const prod = [
         "almacenamiento" : "256Gb SSD",
         "sistema operativo" : "Free",
         "precio" : "$176990",
-        "img" : '../assets/Acer-aspire-5.jpg'
+        "img" : '../assets/Acer-aspire-5.jpg',
+        "stock": "10"
+
     },
     {
         "id" : '5' ,
@@ -56,7 +61,9 @@ const prod = [
         "pantalla" : "10.6'",
         "almacenamiento" : "128 Gb",
         "precio" : "$119900",
-        "img": '../assets/Samsung-tab8.png'
+        "img": '../assets/Samsung-tab8.png',
+        "stock": "10"
+
     },
     {
         "id" : '6' ,
@@ -67,7 +74,8 @@ const prod = [
         "pantalla" : "10.5'",
         "almacenamiento" : "32 Gb",
         "precio" : "$78999",
-        "img": '../assets/xiaomi.png'
+        "img": '../assets/xiaomi.png',
+        "stock": "10"
     }
 ]
 
