@@ -1,7 +1,6 @@
 
 import { Link } from 'react-router-dom'
-import { useContext } from 'react';
-import { CartContext } from '../../App'
+
 import './Prod.css'
 
 function ProdCard({ prod }) {
@@ -19,7 +18,7 @@ function ProdCard({ prod }) {
         <p className="card-text text-secondary">{prod.almacenamiento}</p>
         <p className="card-text text-secondary">{prod.procesador}</p>
       </div>
-      <p><b>{prod.precio}</b></p>
+      <b className='m-2'>$ {prod.precio}</b>
       <Link className='btn btn-success' to={`/prod/${prod.id}`}>Ver detalle</Link>
     </div>
   );

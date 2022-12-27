@@ -1,18 +1,25 @@
 import React from 'react'
-import { useState, useContext } from 'react'
-import { CartContext } from '../../App'
+import Modal from '../Modal/Modal'
+import { useContext, useState } from 'react'
+import { CartContext } from '../../Context/CartContext'
 import './CartWidget.css'
 
 const CartWidget = () => {
 
-  const { cart } = useContext(CartContext)
+  const [modalShow, setModalShow] = useState(false);
 
+
+  const { getQuantity } = useContext(CartContext)
+  const totalQuantity = getQuantity()
   return (
-    <button className='cart-widget btn btn-success mx-2 my-auto d-flex justify-content-center align-items-center'>
+    <div>
+      <button onClick={() => setModalShow(true)} className='cart-widget btn btn-success mx-2 my-auto d-flex justify-content-center align-items-center'>
         <i className="fa-sharp fa-solid fa-cart-shopping p-1"></i>
-        <span>{cart.length}</span>
-    </button>
-  
+        <span>{totalQuantity}</span>
+      </button>
+      <Modal show={modalShow} onHide={() => setModalShow(false)} />
+    </div>
+
   )
 }
 

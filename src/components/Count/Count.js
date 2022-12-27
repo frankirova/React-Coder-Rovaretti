@@ -1,17 +1,13 @@
 import React from 'react'
-import { useState,useContext } from 'react'
-import { CartContext } from '../../App'
-import { getProdById } from '../../asyncmock'
+import { useState } from 'react'
 
 
 
-const Count = ({ prodById, stock }) => {
+const Count = ({ prod, addTo }) => {
   const [count, setCount] = useState(1)
 
-  const { addToCart } = useContext(CartContext)
-
   const increment = () => {
-    if (count < stock){
+    if (count < prod.stock){
     setCount(count + 1)
     }
     
@@ -31,8 +27,8 @@ const Count = ({ prodById, stock }) => {
       </button> */}
 
 
-      <button onClick={ () => {addToCart(prodById)}} className='cart-widget btn btn-success mx-2 my-auto d-flex justify-content-center align-items-center w-100'>
-        Add to cart
+      <button onClick={ () => {addTo(count)}} className='cart-widget btn btn-success mx-2 my-auto d-flex justify-content-center align-items-center w-100'>
+        Add to cart 
       </button>
 
       <div className='count'>
