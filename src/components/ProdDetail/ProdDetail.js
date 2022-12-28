@@ -6,12 +6,12 @@ import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 
-const ProdDetail = ( { prodById, id, categoria, precio, marca, almacenamiento, ram, procesador, pantalla, img, stock} ) => {
+const ProdDetail = ( { prodById, id, categoria, precio, nombre, almacenamiento, ram, procesador, pantalla, img, stock} ) => {
   const { addToCart, isInCart } = useContext(CartContext)
 
   const addTo = (quantity) => {
 
-    addToCart({ id, img, categoria, precio, marca, quantity })
+    addToCart({ id, img, categoria, precio, nombre, quantity })
   }
 
   return (
@@ -23,7 +23,7 @@ const ProdDetail = ( { prodById, id, categoria, precio, marca, almacenamiento, r
         <img src={img} alt="img"></img>
       </div>
 
-      <h4 className="card-title">{marca}</h4>
+      <h4 className="card-title">{nombre}</h4>
     
       <div className="caracteristicas">
         <p className="card-text text-secondary">{ram}</p>
@@ -40,7 +40,7 @@ const ProdDetail = ( { prodById, id, categoria, precio, marca, almacenamiento, r
          
         {
 
-              isInCart(id)  ? <Link to='/cart' className='btn btn-success'>Finalizar compra</Link>
+              isInCart(id)  ? <Link to='/cart' className='btn btn-success'>Confirmar</Link>
                             :stock > 0 ? <Count prod={prodById} addTo={addTo} /> 
                                        : <h1>Sin Stock</h1>  
         //  : <Link to='/cart' className='btn btn-success mx-2 my-auto'>Finalizar compra</Link>

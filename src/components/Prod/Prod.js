@@ -6,8 +6,8 @@ import './Prod.css'
 function ProdCard({ prod }) {
   return (
     <div className="card ">
-      <div className="card-img-top">
-          <img src={prod.img} alt="img"></img>
+      <div >
+          <img className='card-img-top' src={prod.img} alt="img"></img>
       </div>
       <h4 className="card-title">{prod.title}</h4>
       

@@ -43,7 +43,7 @@ const ProdDetailConteiner = () => {
         prodById={prodById}
         id={prodById.id} 
         categoria={prodById.categoria} 
-        marca={prodById.marca} 
+        nombre={prodById.nombre} 
         precio={prodById.precio}
         img={prodById.img}
         pantalla={prodById.pantalla}
