@@ -1,9 +1,14 @@
 
 import { Link } from 'react-router-dom'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Prod.css'
 
 function ProdCard({ prod }) {
+
+
   return (
     <div className="card ">
       <div >
@@ -19,7 +24,9 @@ function ProdCard({ prod }) {
         <p className="card-text text-secondary">{prod.procesador}</p>
       </div>
       <b className='m-2'>$ {prod.precio}</b>
-      <Link className='btn btn-success' to={`/prod/${prod.id}`}>Ver detalle</Link>
+      <Link  className='btn btn-success' to={`/prod/${prod.id}`}>Ver detalle</Link>
+      <ToastContainer
+      />
     </div>
   );
 }

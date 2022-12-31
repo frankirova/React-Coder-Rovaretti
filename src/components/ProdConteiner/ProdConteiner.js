@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react'
 // import { getProds, getProdByCategory } from '../../asyncmock'
 import ProdList from '../ProdListConteiner/ProdList'
 import { useParams } from 'react-router-dom'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../../services/firebaseConfig'
+
+import 'react-toastify/dist/ReactToastify.css';
+
+import { getProducts } from '../../services/Firestore/products'
 
 const ProdConteiner = () => {
   const [prod, setProd] = useState([]);
@@ -16,32 +18,20 @@ const ProdConteiner = () => {
 
   useEffect(() => {
 
-
-    const prodRef = categoryId
-      ? query(collection(db, 'products'), where('categoria', '==', categoryId))
-      : collection(db, 'products')
-
-
-    getDocs(prodRef)
-      .then(response => {
-        const prodAdapted = response.docs.map(doc => {
-          const data = doc.data()
-          return { id: doc.id, ...data }
-        })
-        setProd(prodAdapted)
-      })
-
-
-      .catch(error => {
-        console.log('error')
+    getProducts(categoryId)
+      .then(prod => {
+        setProd(prod)
       })
       .finally(() => setIsLoading(false))
-  }, [categoryId])
+
+    }, [categoryId])
 
 
   if (isLoading) return (<h1>Cargando...</h1>)
+
+  
   return (
-    <div className='conteiner d-flex flex-column justify-content-center h-100 m-6'>
+    <div className='conteiner d-flex flex-column justify-content-center h-100 '>
       <h2 className='titulo my-2'>Bienvenidos a <span className='titulo-color'>RealTech</span></h2>
       <ProdList prod={prod} />
     </div>

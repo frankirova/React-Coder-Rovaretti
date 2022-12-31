@@ -1,5 +1,8 @@
 import { createContext, useState } from 'react';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export const CartContext = createContext({})
 
 export const CartProvider = ({ children }) => {
@@ -9,7 +12,21 @@ export const CartProvider = ({ children }) => {
     if (!isInCart(prodToAdd.id)) {
       console.log(prodToAdd)
       setCart([...cart, prodToAdd])
+      notifyAddedToCart()
     }
+  }
+
+  const notifyAddedToCart = () => {
+    toast.success('🦄 Added to cart!', {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
   }
 
   const isInCart = (id) => {

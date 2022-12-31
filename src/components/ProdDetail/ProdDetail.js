@@ -6,6 +6,9 @@ import { useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
 import { Link } from 'react-router-dom'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ProdDetail = ( { prodById, id, categoria, precio, nombre, almacenamiento, ram, procesador, pantalla, img, stock} ) => {
   const { addToCart, isInCart } = useContext(CartContext)
 
@@ -13,7 +16,18 @@ const ProdDetail = ( { prodById, id, categoria, precio, nombre, almacenamiento, 
 
     addToCart({ id, img, categoria, precio, nombre, quantity })
   }
-
+  // const notifySucces = () => {
+  //   toast.success('🦄 Added to cart!', {
+  //     position: "top-right",
+  //     autoClose: 3000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "dark",
+  //     });
+  // }
   return (
   <div>
 
@@ -37,16 +51,13 @@ const ProdDetail = ( { prodById, id, categoria, precio, nombre, almacenamiento, 
     </div>
 
       <div className='count-component d-flex align-items-center justify-content-center'>
-         
         {
-
-              isInCart(id)  ? <Link to='/cart' className='btn btn-success'>Confirmar</Link>
-                            :stock > 0 ? <Count prod={prodById} addTo={addTo} /> 
-                                       : <h1>Sin Stock</h1>  
-        //  : <Link to='/cart' className='btn btn-success mx-2 my-auto'>Finalizar compra</Link>
-        }
-        
-        
+          
+          isInCart(id)  ? <Link to='/cart' className='btn btn-success mx-2 my-auto'>Confirmar</Link>
+          :stock > 0 ? <Count prod={prodById} addTo={addTo} /> 
+          : <h1>Sin Stock</h1>  
+        }        
+        <ToastContainer />
       </div>
 
     </div>

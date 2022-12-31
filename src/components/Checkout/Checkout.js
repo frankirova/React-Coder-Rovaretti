@@ -1,15 +1,19 @@
 import React from 'react'
 import { useState, useContext } from 'react'
 import { CartContext } from '../../Context/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 import { addDoc, collection, documentId, getDocs, query, where, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebaseConfig'
+import { ToastContainer, toast } from 'react-toastify'
 
 
 const Checkout = () => {
 
     const [values, setValues] = useState({})
     const [isLoading, setIsLoading] = useState(false)
+
+    const navigate = useNavigate()
 
     const { cart, getTotal, clearCart } = useContext(CartContext)
 
@@ -20,7 +24,7 @@ const Checkout = () => {
         })
     }
 
-    const handleOrder = async () => {
+    const handleCreateOrder = async () => {
         setIsLoading(true)
         try {
             const order = {
@@ -63,21 +67,49 @@ const Checkout = () => {
 
                 const orderRef = collection(db, 'orders')
                 const orderAdded = await addDoc(orderRef, order)
-
+                notifyCreateOrderSuccess()
                 clearCart()
+                navigate('/')
             }
             else {
-                console.error('Sin stock del producto')
+                notifyErrorCreateOrder()
             }
         }
         catch (error) {
-            console.error('error')
+            notifyErrorCreateOrder()
         }
         finally {
             setIsLoading(false)
         }
 
     }
+
+    const notifyCreateOrderSuccess = () => {
+        toast.success('🦄 Order created successfully', {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+      }
+
+      const notifyErrorCreateOrder = () => {
+        toast.error('Error creating order, check the stock of the product and try again', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            });
+      }
+
     if (isLoading) return (<h1>Generando orden...</h1>)
 
 
@@ -122,10 +154,11 @@ const Checkout = () => {
             </form>
             <button
                 className='btn btn-success'
-                onClick={handleOrder}
+                onClick={handleCreateOrder}
             >
                 Terminar orden
             </button>
+            <ToastContainer />
         </div>
     )
 }
